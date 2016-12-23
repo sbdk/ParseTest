@@ -82,27 +82,21 @@ extension Collection: PFSubclassing {
   }
 }
 
-
-//class User: PFUser {
-//  
-//}
-//
-//extension User: PFSubclassing {
-//  static func parseClassName() -> String {
-//    return "User"
-//  }
-//}
-
 public func configParse() {
   
+  //Register PFSub Class Objects
   Car.registerSubclass()
   Collection.registerSubclass()
+  
   let configuration = ParseClientConfiguration {
     $0.applicationId = "appID"
     $0.server = "http://localhost:1337/parse"
     $0.isLocalDatastoreEnabled = true
   }
   Parse.initialize(with: configuration)
+  
+  //Enable automatic Anonymous users
+  //Need to place after Parse has initizlized
   PFUser.enableAutomaticUser()
   PFUser.current()?.incrementKey("RunCount")
   PFUser.current()?.saveInBackground()

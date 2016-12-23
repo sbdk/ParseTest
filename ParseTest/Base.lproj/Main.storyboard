@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,10 +37,19 @@
                                     <constraint firstAttribute="height" constant="250" id="lE4-c2-Dd6"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7L-KL-8Bi">
+                                <rect key="frame" x="146.5" y="164" width="81" height="30"/>
+                                <state key="normal" title="Get Articals"/>
+                                <connections>
+                                    <action selector="getArticalButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5I1-RW-lC2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="d7L-KL-8Bi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="EIT-zL-ZQW"/>
                             <constraint firstAttribute="trailing" secondItem="Ubv-bc-FLi" secondAttribute="trailing" id="Jll-2n-b5G"/>
+                            <constraint firstItem="d7L-KL-8Bi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qkh-r2-ONN"/>
                             <constraint firstItem="0iu-pu-rWK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vmw-h6-XhT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0iu-pu-rWK" secondAttribute="bottom" constant="33" id="aG3-Ly-7pS"/>
                             <constraint firstItem="Ubv-bc-FLi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i4Q-uW-Os9"/>
@@ -83,6 +94,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lwl-Up-eSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1798" y="71"/>
+        </scene>
+        <!--Artical View Controller-->
+        <scene sceneID="zt0-Qq-xcg">
+            <objects>
+                <viewController storyboardIdentifier="ArticalViewController" id="Dg8-6U-drK" customClass="ArticalViewController" customModule="ParseTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sf6-ZQ-O9p"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pf8-L5-979"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U6j-Th-ERk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JL-wt-luc">
+                                <rect key="frame" x="37" y="100" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7VZ-UC-dKK">
+                                <rect key="frame" x="21" y="171" width="333" height="211"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="taZ-F2-P6P">
+                                <rect key="frame" x="21" y="402" width="333" height="260"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2JL-wt-luc" firstAttribute="centerX" secondItem="U6j-Th-ERk" secondAttribute="centerX" id="2Do-Nu-Ffj"/>
+                            <constraint firstItem="taZ-F2-P6P" firstAttribute="leading" secondItem="U6j-Th-ERk" secondAttribute="leadingMargin" constant="5" id="3pr-eu-pp3"/>
+                            <constraint firstItem="2JL-wt-luc" firstAttribute="top" secondItem="sf6-ZQ-O9p" secondAttribute="bottom" constant="80" id="7WJ-pz-cOO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7VZ-UC-dKK" secondAttribute="trailing" constant="5" id="8Ds-0p-oU3"/>
+                            <constraint firstItem="7VZ-UC-dKK" firstAttribute="top" secondItem="2JL-wt-luc" secondAttribute="bottom" constant="50" id="Alq-lK-5Uh"/>
+                            <constraint firstItem="7VZ-UC-dKK" firstAttribute="leading" secondItem="U6j-Th-ERk" secondAttribute="leadingMargin" constant="5" id="E3S-r0-e3V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="taZ-F2-P6P" secondAttribute="trailing" constant="5" id="azA-no-v3R"/>
+                            <constraint firstItem="2JL-wt-luc" firstAttribute="width" secondItem="U6j-Th-ERk" secondAttribute="width" multiplier="0.8" id="d9H-8C-AGY"/>
+                            <constraint firstItem="Pf8-L5-979" firstAttribute="top" secondItem="7VZ-UC-dKK" secondAttribute="bottom" constant="270" id="e56-Wu-Z5l"/>
+                            <constraint firstItem="taZ-F2-P6P" firstAttribute="top" secondItem="7VZ-UC-dKK" secondAttribute="bottom" constant="5" id="k1S-14-iJE"/>
+                            <constraint firstItem="Pf8-L5-979" firstAttribute="top" secondItem="taZ-F2-P6P" secondAttribute="bottom" constant="5" id="lbH-z7-SCT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="articalBody" destination="7VZ-UC-dKK" id="GX5-MP-A8w"/>
+                        <outlet property="articalTitle" destination="2JL-wt-luc" id="eu4-xp-WoO"/>
+                        <outlet property="coverImageView" destination="taZ-F2-P6P" id="b4d-Nm-8z8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LJa-P5-vSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797.5999999999999" y="748.87556221889065"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bXI-rr-lyw">

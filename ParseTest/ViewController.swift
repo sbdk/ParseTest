@@ -19,26 +19,30 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     let image = UIImage(named: "Mazda")
     let data = UIImagePNGRepresentation(image!)!
+        guard let carFile = PFFile(data: data) else {
+          print("create PFFile from image data failed")
+          return
+        }
+    newCar = Car(brand: "马自达", image: carFile)
+    
+        newCar.saveInBackground { (success, error) in
+          if success {
+            print("save image data success")
+          } else {
+            print(error?.localizedDescription)
+          }
+        }
+    
+    
     print(PFUser.current())
     if PFAnonymousUtils.isLinked(with: PFUser.current()) {
       print("Current user is Anonymous")
     }
-    
-    guard let carFile = PFFile(data: data) else {
-      print("create PFFile from image data failed")
-      return
-    }
-    newCar = Car(brand: "马自达", image: carFile)
-    
-    newCar.saveInBackground { (success, error) in
-      if success {
-        print("save image data success")
-      } else {
-        print(error?.localizedDescription)
-      }
-    }
+//
+
     
     //Creat a new parse object
 //    let testObject = PFObject(className: "game")
@@ -86,35 +90,45 @@ class ViewController: UIViewController {
   
   @IBAction func SaveButtonTouched(_ sender: Any) {
     
-    let query = Collection.query()
-    //Do some fine query condition here...
-    query?.getFirstObjectInBackground(block: { (result, error) in
-      if error != nil {
-        let errorCode = (error as! NSError).code
-        switch errorCode {
-        //No object found, creat a default collection to save data
-        case 101:
-          let defaultCollection = Collection(collectionName: "Default", owner: PFUser.current()!)
-          defaultCollection.cars.append(self.newCar)
-          defaultCollection.saveInBackground(block: { (success, error) in
-            if success {
-              print("Create a default collection and save data successfully")
-            }
-          })
-        default: break
-        }
-      } else {
+    if PFUser.current()?.objectId == nil {
+      presentAlertView(title: "You are Logged out!", body: "Please login to save data, or force quit and restart your app", host: self)
+    } else {
+      let query = Collection.query()
+      query?.whereKey("owner", equalTo: PFUser.current()!)
+      //Do some fine query condition here...
+      query?.getFirstObjectInBackground(block: { (result, error) in
+        if error != nil {
+          let errorCode = (error as! NSError).code
+          switch errorCode {
+          //No object found, creat a default collection to save data
+          case 101:
+            let defaultCollection = Collection(collectionName: "Default", owner: PFUser.current()!)
+            defaultCollection.cars.append(self.newCar)
+            defaultCollection.saveInBackground(block: { (success, error) in
+              if success {
+                print("Create a default collection and save data successfully")
+              }
+            })
+          default: break
+          }
+        } else {
           let collection = result as! Collection
           collection.cars.append(self.newCar)
           collection.saveInBackground(block: { (success, error) in
-          if success {
-            print("Find a collection and save data successfully")
-          }
-        })
-      }
-    })
+            if success {
+              print("Find a collection and save data successfully")
+            }
+          })
+        }
+      })
+    }
   }
 
+  @IBAction func getArticalButtonTouched(_ sender: Any) {
+    let controller = storyboard?.instantiateViewController(withIdentifier: "ArticalViewController") as! ArticalViewController
+    navigationController?.pushViewController(controller, animated: true) 
+    
+  }
 
   @IBAction func ButtonTouched(_ sender: Any) {
     
@@ -122,6 +136,7 @@ class ViewController: UIViewController {
       PFUser.logOut()
       updateLogButton()
       print("logOut success")
+      print("Now the current user‘s objectId is: \(PFUser.current()?.objectId)")
     } else {
       //No user exist, present login view
       //MARK: ParseUI default loginViewController

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58ADF64F427DB2F7B8A94C77 /* Pods_ParseTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E9DE81196ED0676F8AA910 /* Pods_ParseTestTests.framework */; };
 		638B6D764501ECD40C1F7616 /* Pods_ParseTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0196536D54BAEE9A184EFBF2 /* Pods_ParseTestUITests.framework */; };
+		BE12A5781E0C68DA00C1378E /* ArticalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE12A5771E0C68DA00C1378E /* ArticalViewController.swift */; };
 		BE136F6F1E00C8F300BF4E7A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE136F6E1E00C8F300BF4E7A /* Model.swift */; };
 		BE4F5DD81DFFB97A008744D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F5DD71DFFB97A008744D9 /* AppDelegate.swift */; };
 		BE4F5DDA1DFFB97A008744D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F5DD91DFFB97A008744D9 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		6CB62F08312312C7D4C35755 /* Pods-ParseTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseTestTests/Pods-ParseTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		7AC7D3C32B7C9FD0F1B37B26 /* Pods-ParseTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseTestTests/Pods-ParseTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95E9DE81196ED0676F8AA910 /* Pods_ParseTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE12A5771E0C68DA00C1378E /* ArticalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticalViewController.swift; sourceTree = "<group>"; };
 		BE136F6E1E00C8F300BF4E7A /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		BE4F5DD41DFFB97A008744D9 /* ParseTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4F5DD71DFFB97A008744D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				BE4F5DD71DFFB97A008744D9 /* AppDelegate.swift */,
 				BE4F5DD91DFFB97A008744D9 /* ViewController.swift */,
 				BEFC3ED31E0B4278002A8CC3 /* TableView.swift */,
+				BE12A5771E0C68DA00C1378E /* ArticalViewController.swift */,
 				BEF965B91E0360C100949FD1 /* PFLoginController.swift */,
 				BEF965BB1E0361B200949FD1 /* PFSignUpController.swift */,
 				BE136F6E1E00C8F300BF4E7A /* Model.swift */,
@@ -453,6 +456,7 @@
 				BE4F5DDA1DFFB97A008744D9 /* ViewController.swift in Sources */,
 				BEFC3ED41E0B4278002A8CC3 /* TableView.swift in Sources */,
 				BEF965BE1E03707E00949FD1 /* CustomViews.swift in Sources */,
+				BE12A5781E0C68DA00C1378E /* ArticalViewController.swift in Sources */,
 				BE4F5DD81DFFB97A008744D9 /* AppDelegate.swift in Sources */,
 				BEF965BC1E0361B200949FD1 /* PFSignUpController.swift in Sources */,
 			);

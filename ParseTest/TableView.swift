@@ -24,13 +24,15 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     automaticallyAdjustsScrollViewInsets = false
     setupTableView()
     
-    let query = Collection.query()
-    query?.includeKey("cars")
-    query?.whereKey("owner", equalTo: user)
-    query?.getFirstObjectInBackground(){ result, error in
-      guard let result = result else {return}
-      self.collection = result as! Collection
-      self.tableView.reloadData()
+    if PFUser.current()!.objectId != nil {
+      let query = Collection.query()
+      query?.includeKey("cars")
+      query?.whereKey("owner", equalTo: user)
+      query?.getFirstObjectInBackground(){ result, error in
+        guard let result = result else {return}
+        self.collection = result as! Collection
+        self.tableView.reloadData()
+      }
     }
   }
   
